@@ -1,0 +1,55 @@
+<?php $i=0;?>
+<?= 'User: '.$user['firstName'].' '.$user['surname'] ?>
+<hr />
+<div style="float:left">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Friends</th>
+        </tr>
+        <?php if (count($rows) > 0):
+           
+            foreach ($rows as $friend):
+                ?>    
+                <tr>
+                    <td><?= $friend['friend_id'].' '.$friend['firstName'] ?></td>
+                    <td><?= $friend['surname'] ?></td>
+                    <td><?= $friend['gender'] ?></td>
+                    <td><?= $friend['age'] ?></td>
+                    <td><?php foreach ($rows1[$i++] as $f1):?>
+                        <?= $f1['firstName'];?>  <?= $f1['surname'];?>
+                        <br/>   
+                        <?php endforeach;?>
+                        </td>
+                </tr>
+                
+    <?php endforeach; endif; ?>
+    </table>
+</div>
+<div style="float:left">
+     <h3>Suggested Friends</h3>
+    <?php if (count($rows2) > 0):
+        foreach ($rows2 as $suggestedFriends):
+    ?>
+   
+    <?= $suggestedFriends['firstName'].' '.$suggestedFriends['surname'].'<br/>' ?>
+    <?php endforeach;?>
+        
+    <?php endif;?>
+</div>
+
+<div style="float:left; margin-left: 20px">
+     <h3>Suggested Cities</h3>
+    <?php if (count($cities) > 0):
+        foreach ($cities as $city):
+    ?>
+   
+    <?= $city['name'].'<br/>' ?>
+    <?php endforeach;?>
+        
+    <?php endif;?>
+</div>
+<div style="clear: both"></div>

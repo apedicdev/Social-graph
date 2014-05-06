@@ -1,0 +1,23 @@
+<hr />
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Gender</th>
+            <th>Age</th>
+        </tr>
+    <?php if(count($rows)>0):
+        foreach($rows as $r):?>    
+        <tr>
+            <td><?=$r['firstName']?></td>
+            <td><?=$r['surname']?></td>
+            <td><?=$r['gender']?></td>
+            <td><?=$r['age']?></td>
+            <td>
+                <a href="contact/home/showfriends?id=<?=$r['id']?>">Show friends</a>
+            </td>
+        </tr>
+    <?php endforeach;endif;?>
+    </table>
+</div>
